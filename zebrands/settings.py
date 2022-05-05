@@ -136,3 +136,9 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
 }
+
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = '82c01b57a97887'
+EMAIL_HOST_PASSWORD = 'f37e7a46fd410d'
+EMAIL_PORT = 587
