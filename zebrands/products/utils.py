@@ -5,10 +5,8 @@ from django.template.loader import get_template
 
 
 def send_product_email(new_product):
-    #TODO: Pending Filter by admins
-    admins = User.objects.all()
-    # emails = [admin.email for admin in admins]
-    emails = ['karimy@sunwise.mx']
+    admins = User.objects.filter(is_staff=True)
+    emails = [admin.email for admin in admins]
 
     template_html = get_template('product.html')
     context = {
