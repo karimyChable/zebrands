@@ -3,10 +3,13 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from zebrands.users.permissions import PermissionRequired
 from zebrands.users.serializers import GetUserSerializer, PostUserSerializer, UserCreateSerializer, UserUpdateSerializer
 
 
 class UserView(APIView):
+    model = User
+    permission_classes = ((PermissionRequired),)
 
     def get(self, request, pk):
         try:
@@ -49,6 +52,8 @@ class UserView(APIView):
 
 
 class UserListView(APIView):
+    model = User
+    permission_classes = ((PermissionRequired),)
 
     def get(self, request):
         users = User.objects.all()
