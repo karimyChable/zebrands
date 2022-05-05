@@ -1,0 +1,5 @@
+Te informamos que el catálogo de productos Zebrands ha sido actualizado.
+
+Se ha {{action}} un producto del catálogo
+
+Zebrands- All rights reserved

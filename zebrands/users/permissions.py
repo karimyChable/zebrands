@@ -22,8 +22,8 @@ class PermissionRequired(permissions.BasePermission):
                 return True
             # Here we're going to validate the method requested via API
             else:
-                # if raise_exception:
-                #     raise Exception("No tienes permiso para realizar esta accion")
+                if raise_exception:
+                    raise Exception("No tienes permiso para realizar esta accion")
                 return False
         except Exception as error:
             return False

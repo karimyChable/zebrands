@@ -5,9 +5,12 @@ from rest_framework.views import APIView
 
 from zebrands.products.models import Product
 from zebrands.products.serializers import GetProductSerializer, PostProductSerializer
+from zebrands.users.permissions import PermissionRequired
 
 
 class ProductView(APIView):
+    # model = Product
+    # permission_classes = ((PermissionRequired),)
 
     def get(self, request, pk):
         try:
@@ -50,6 +53,8 @@ class ProductView(APIView):
 
 
 class ProductListView(APIView):
+    # model = Product
+    # permission_classes = ((PermissionRequired),)
 
     def get(self, request):
         products = Product.objects.all()
