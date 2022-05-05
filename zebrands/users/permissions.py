@@ -1,18 +1,10 @@
 from rest_framework import permissions
-from rest_framework import exceptions
-from django.contrib.auth.models import Group
-
-from django.db import connection
-import logging
 
 
 class PermissionRequired(permissions.BasePermission):
 
     def has_permission(self, request, view):
         try:
-            raise_exception = True
-
-            app_label = view.model._meta.app_label
             model_name = view.model._meta.model_name
             method = request.method.lower()
             available_methods = ['get']  # Only get methods are availables for anonymous users
@@ -27,6 +19,5 @@ class PermissionRequired(permissions.BasePermission):
                     return True
                 else:
                     raise Exception("No tienes permiso para realizar esta accion")
-                    return False
-        except Exception as error:
+        except Exception:
             return False

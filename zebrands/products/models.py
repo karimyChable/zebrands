@@ -23,4 +23,3 @@ class Product(models.Model):
         # Here send email
         send_product_email(new_product)
         super(Product, self).save(*args, **kwargs)
-

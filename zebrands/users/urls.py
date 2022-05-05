@@ -10,7 +10,7 @@ users_url = [
     path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
-    #Endpoints for users
+    # Endpoints for users
     path('users/<int:pk>', UserView.as_view()),
     path('users/', UserListView.as_view()),
 ]
