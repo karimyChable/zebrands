@@ -1,1 +1,1 @@
-web: gunicorn zebrands.wsgi
+web gunicorn zebrands.wsgi
