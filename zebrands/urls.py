@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include, re_path
 
+from zebrands.logs.urls import logs_urls
 from zebrands.products.urls import products_urls
 from zebrands.users.urls import users_url
 
@@ -24,4 +25,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path(f'{api_url}', include(products_urls)),
     path(f'{api_url}', include(users_url)),
+    path(f'{api_url}', include(logs_urls)),
 ]
