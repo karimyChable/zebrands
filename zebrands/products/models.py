@@ -8,6 +8,9 @@ from zebrands.products.utils import send_product_email
 
 
 class Product(models.Model):
+    """
+        Stores the list of products
+    """
     id = models.UUIDField(default=uuid.uuid4, primary_key=True)
     name = models.CharField(max_length=250, null=False, blank=False)
     description = models.CharField(max_length=500, null=False, blank=False)
@@ -17,6 +20,10 @@ class Product(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
+        """
+        Send email notification for the admins users
+        Indicate if product is new or updated.
+        """
         new_product = False
         if self._state.adding:
             new_product = True

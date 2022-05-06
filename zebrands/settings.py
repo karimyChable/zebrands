@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'zebrands.products',
     'zebrands.users',
-    'zebrands.logs'
+    'zebrands.logs',
+    'django.contrib.admindocs'
 ]
 
 MIDDLEWARE = [

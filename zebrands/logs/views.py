@@ -9,10 +9,16 @@ from zebrands.users.permissions import PermissionRequired
 
 
 class LogView(APIView):
+    """
+        Display methods for get, update or delete a Log Item :model:`logs.Log`.
+    """
     model = Log
     permission_classes = [PermissionRequired]
 
     def get(self, request, pk):
+        """
+            Display a Log Item :model:`logs.Log`.
+        """
         try:
             log = Log.objects.get(pk=pk)
             log_serializer = GetLogSerializer(log)
@@ -22,6 +28,9 @@ class LogView(APIView):
 
 
     def put(self, request, pk):
+        """
+            Update a Log Item :model:`logs.Log`.
+        """
         try:
             log = Log.objects.get(pk=pk)
             log_serializer = PostLogSerializer(log, data=request.data, partial=True)
@@ -44,6 +53,9 @@ class LogView(APIView):
                             status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk):
+        """
+            Delete a Log Item :model:`logs.Log`.
+        """
         try:
             log = Log.objects.get(pk=pk)
             log.delete()
@@ -54,15 +66,24 @@ class LogView(APIView):
 
 
 class LogListView(APIView):
+    """
+        Display methods for Save and list all Logs Items. Log Item :model:`logs.Log`.
+    """
     model = Log
     permission_classes = [PermissionRequired]
 
     def get(self, request):
+        """
+            Display all Logs Items. Log Item :model:`logs.Log`.
+        """
         logs = Log.objects.all()
         logs_serializers = GetLogSerializer(logs, many=True)
         return Response(dict(success=True, data=logs_serializers.data, status=status.HTTP_200_OK))
 
     def post(self, request):
+        """
+            Save a Logs Item. Log Item :model:`logs.Log`.
+        """
         try:
             log_serializer = PostLogSerializer(data=request.data, partial=True)
             if log_serializer.is_valid():

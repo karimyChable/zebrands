@@ -8,10 +8,16 @@ from zebrands.users.serializers import GetUserSerializer, UserCreateSerializer, 
 
 
 class UserView(APIView):
+    """
+        Display methods for get, update or delete a User Item :model:`auth.User`.
+    """
     model = User
     permission_classes = [PermissionRequired]
 
     def get(self, request, pk):
+        """
+            Endpoint to get a User Item :model:`auth.User`.
+        """
         try:
             user = User.objects.get(pk=pk)
             user_serializer = GetUserSerializer(user)
@@ -20,6 +26,9 @@ class UserView(APIView):
             return Response(dict(success=False, error='Usuario no encontrado'), status=status.HTTP_400_BAD_REQUEST)
 
     def put(self, request, pk):
+        """
+            Endpoint to get update a User Item :model:`auth.User`.
+        """
         try:
             user = User.objects.get(pk=pk)
             user_serializer = UserUpdateSerializer(user, data=request.data, partial=True)
@@ -42,6 +51,9 @@ class UserView(APIView):
                             status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk):
+        """
+            Endpoint to delete a User Item :model:`auth.User`.
+        """
         try:
             user = User.objects.get(pk=pk)
             user.delete()
@@ -52,15 +64,24 @@ class UserView(APIView):
 
 
 class UserListView(APIView):
+    """
+        Display methods for Save and list all Users Items. User Item :model:`auth.User`.
+    """
     model = User
     permission_classes = [PermissionRequired]
 
     def get(self, request):
+        """
+            Method for get a list of all User Item. User Item :model:`auth.User`.
+        """
         users = User.objects.all()
         users_serializer = GetUserSerializer(users, many=True)
         return Response(dict(success=True, data=users_serializer.data, status=status.HTTP_200_OK))
 
     def post(self, request):
+        """
+            Method for save a User Item. User Item :model:`auth.User`.
+        """
         try:
             user_serializer = UserCreateSerializer(data=request.data, partial=True)
             if user_serializer.is_valid():

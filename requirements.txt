@@ -3,6 +3,7 @@ Django==4.0.4
 djangorestframework==3.13.1
 djangorestframework-jwt==1.11.0
 djangorestframework-simplejwt==5.1.0
+docutils==0.18.1
 psycopg2==2.9.3
 PyJWT==1.7.1
 pytz==2022.1
