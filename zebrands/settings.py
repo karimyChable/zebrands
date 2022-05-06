@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'zebrands.products',
-    'zebrands.users'
+    'zebrands.users',
+    'zebrands.logs'
 ]
 
 MIDDLEWARE = [
@@ -50,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'zebrands.logs.middleware.LogMiddleware'
 ]
 
 ROOT_URLCONF = 'zebrands.urls'
