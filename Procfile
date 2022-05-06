@@ -1,1 +1,1 @@
-web: gunicorn zebrands-karimy.wsgi
+web: gunicorn zebrands.wsgi
