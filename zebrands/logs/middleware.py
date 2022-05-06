@@ -9,6 +9,7 @@ class LogMiddleware:
     This middleware Intercept the request and save it only is a product request
      on table Log
     """
+
     def __init__(self, get_response):
         self.get_response = get_response
 
@@ -16,15 +17,16 @@ class LogMiddleware:
 
         execution_time = time.time()
         response = self.get_response(request)  # Get response from view function.
-        execution_time = int((time.time() - execution_time)*1000)
+        execution_time = int((time.time() - execution_time) * 1000)
 
         # Returns only the response if not from products
-        prefixs = [
-            '/api/v1/products'
-        ]
-        methods_to_store = ['GET']
+        prefixs = ["/api/v1/products"]
+        methods_to_store = ["GET"]
         method_requested = request.method
-        if not list(filter(request.get_full_path().startswith, prefixs)) or method_requested not in methods_to_store:
+        if (
+            not list(filter(request.get_full_path().startswith, prefixs))
+            or method_requested not in methods_to_store
+        ):
             return response
 
         # Save on Log Table
@@ -35,7 +37,7 @@ class LogMiddleware:
             ip=get_user_ip(request),
             exec_time=execution_time,
             body_response=str(response.content),
-            body_request=str(request.body)
+            body_request=str(request.body),
         )
 
         # Save user if admin

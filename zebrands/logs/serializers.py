@@ -6,11 +6,11 @@ from zebrands.logs.models import Log
 class PostLogSerializer(serializers.ModelSerializer):
     class Meta:
         model = Log
-        fields = '__all__'
+        fields = "__all__"
 
 
 class GetLogSerializer(serializers.ModelSerializer):
     class Meta:
         model = Log
-        fields = '__all__'
+        fields = "__all__"
         depth = 1

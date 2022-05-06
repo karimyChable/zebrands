@@ -20,11 +20,11 @@ from zebrands.logs.urls import logs_urls
 from zebrands.products.urls import products_urls
 from zebrands.users.urls import users_url
 
-api_url = 'api/v1/'
+api_url = "api/v1/"
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('documentation/', include('django.contrib.admindocs.urls')),
-    path(f'{api_url}', include(products_urls)),
-    path(f'{api_url}', include(users_url)),
-    path(f'{api_url}', include(logs_urls)),
+    path("admin/", admin.site.urls),
+    path("documentation/", include("django.contrib.admindocs.urls")),
+    path(f"{api_url}", include(products_urls)),
+    path(f"{api_url}", include(users_url)),
+    path(f"{api_url}", include(logs_urls)),
 ]

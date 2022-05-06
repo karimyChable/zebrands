@@ -9,8 +9,9 @@ from zebrands.products.utils import send_product_email
 
 class Product(models.Model):
     """
-        Stores the list of products
+    Stores the list of products
     """
+
     id = models.UUIDField(default=uuid.uuid4, primary_key=True)
     name = models.CharField(max_length=250, null=False, blank=False)
     description = models.CharField(max_length=500, null=False, blank=False)

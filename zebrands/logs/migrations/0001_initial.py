@@ -16,19 +16,31 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Log',
+            name="Log",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, primary_key=True, serialize=False)),
-                ('endpoint', models.CharField(max_length=100, null=True)),
-                ('status_code', models.PositiveSmallIntegerField()),
-                ('method', models.CharField(max_length=10, null=True)),
-                ('ip', models.CharField(max_length=20, null=True)),
-                ('exec_time', models.IntegerField(null=True)),
-                ('body_response', models.TextField()),
-                ('body_request', models.TextField()),
-                ('created_at', models.DateTimeField(auto_now=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('user', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4, primary_key=True, serialize=False
+                    ),
+                ),
+                ("endpoint", models.CharField(max_length=100, null=True)),
+                ("status_code", models.PositiveSmallIntegerField()),
+                ("method", models.CharField(max_length=10, null=True)),
+                ("ip", models.CharField(max_length=20, null=True)),
+                ("exec_time", models.IntegerField(null=True)),
+                ("body_response", models.TextField()),
+                ("body_request", models.TextField()),
+                ("created_at", models.DateTimeField(auto_now=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
+                (
+                    "user",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]

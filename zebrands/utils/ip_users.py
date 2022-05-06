@@ -5,9 +5,9 @@ def get_user_ip(request):
     :param: request
     :return: ip_user
     """
-    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
     if x_forwarded_for:
-        ip_user = x_forwarded_for.split(',')[0]
+        ip_user = x_forwarded_for.split(",")[0]
     else:
-        ip_user = request.META.get('REMOTE_ADDR')
+        ip_user = request.META.get("REMOTE_ADDR")
     return ip_user
