@@ -1,1 +1,1 @@
-web: gunicorn zebrands.wsgi --log-file-
+web: gunicorn zebrands.wsgi
