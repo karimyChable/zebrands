@@ -29,3 +29,6 @@ Tests
 POSTMAN COLLECTION
 https://www.getpostman.com/collections/876c46c24aaf494f73c9
 
+DEPLOYED APP ON HEROKU
+
+https://zebrands-karimy.herokuapp.com/
