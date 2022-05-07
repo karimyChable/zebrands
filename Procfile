@@ -1,1 +1,1 @@
-web: gunicorn zebrands.wsgi
+web: gunicorn zebrands.wsgi:application --log-file - --log-level debug
