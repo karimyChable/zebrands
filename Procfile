@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath zebrands.zebrands.wsgi --log-file -
+gunicorn $WSGI_PATH:application
