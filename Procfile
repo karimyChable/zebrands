@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath zebrands zebrands.wsgi
+web: gunicorn --pythonpath zebrands.wsgi
